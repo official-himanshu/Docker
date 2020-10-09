@@ -1,0 +1,19 @@
+version: "3.8"
+volumes:
+        jenkins:
+services:
+        jenkins:
+                build: .
+                ports:
+                        - "5040:8080"
+                volumes:
+                        - type: bind
+                          source: /var/lib/jenkins
+                          target: /root/.jenkins
+
+networks:
+        default:
+                external:
+                        name: jenkins
+
+
